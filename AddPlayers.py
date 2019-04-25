@@ -31,10 +31,10 @@ session = DBSession()
     team_id = Column(Integer, ForeignKey('teams.id'))
     team = relationship(Teams)'''
 
-user = User(id=1, name="Anthony", email="anthonyfsauve@gmail.com")
+'''user = User(id=1, name="Anthony", email="anthonyfsauve@gmail.com")
 
 session.add(user)
-session.commit()	
+session.commit()'''	
 	
 player = Players(id=1, name="Mark", team_id=1, user_id=1)
 
