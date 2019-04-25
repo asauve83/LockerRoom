@@ -1,0 +1,61 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner main">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<h1>My Team Catalog</h1>
+		</div>
+	</div>
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<ul>
+						{% for message in messages %}
+							 <li> <strong> {{ message }} </strong> </li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
+		</div>
+	</div>
+	
+	<div class="row row-eq-height">
+		<div class="col-md-1"></div>
+		<div class ="col-md-1">
+			<a href="{{url_for('showTeams')}}">
+				<button class="btn add btn-default" id="new-team">
+					<a href="{{url_for('newTeam')}}"><h4>Add A New Team</h4></a>
+				</button>
+			</a>
+		</div>
+		<div class="col-md-10"></div>
+	</div>
+	
+	{% for team in teams %}
+		<div class="row">
+		 <div class="col-md-1"></div>
+		 <div class="col-md-5 team-list">
+			<h3>{{team.name}}</h3>
+			</a>
+		 </div>
+		 <!--add edit and delete icons (url_for)-->
+		 <div class="col-md-1 team-list">
+		 	<a href="{{url_for('editTeam', team_id = team.id)}}"><h4>Edit</h4></a>
+		 </div>
+		  <div class="col-md-1 team-list">
+		 	<a href="{{url_for('deleteTeam', team_id = team.id)}}"><h4>Delete</h4></a>
+		 </div>
+		 <div class="col-md-4"></div>
+	    </div>
+	{% endfor %}
+{% endblock %}
