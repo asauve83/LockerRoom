@@ -23,7 +23,7 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = "LockerRoomProject"
 
 # Connect to the Database and create a database session
-engine = create_engine('sqlite:///LockerRoom.db')
+engine = create_engine('postgresql://lockerroom:postgress@localhost/LockerRoom')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
