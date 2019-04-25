@@ -31,6 +31,11 @@ session = DBSession()
     team_id = Column(Integer, ForeignKey('teams.id'))
     team = relationship(Teams)'''
 
+user = User(id=1, name="Anthony", email="anthonyfsauve@gmail.com")
+
+session.add(user)
+session.commit()	
+	
 player = Players(id=1, name="Mark", team_id=1, user_id=1)
 
 session.add(player)
@@ -61,9 +66,5 @@ player = Players(id=6, name="Luke", team_id=6, user_id=1)
 session.add(player)
 session.commit()
 
-user = User(id=1, name="Anthony", email="anthonyfsauve@gmail.com")
-
-session.add(user)
-session.commit()
 
 print "Added some players!"
