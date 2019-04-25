@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 # get the google security information from the local file
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
+    open('/var/www/locker_room/LockerRoom/client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "LockerRoomProject"
 
 # Connect to the Database and create a database session
