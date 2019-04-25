@@ -77,5 +77,5 @@ class Players(Base):
         }
 
 
-engine = create_engine('postgresql://lockerroom:postgress@localhost/LockerRoom')
+engine = create_engine('postgresql://lockerroom:postgres@localhost/LockerRoom')
 Base.metadata.create_all(engine)
